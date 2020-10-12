@@ -22,7 +22,12 @@
 
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
-
+	<style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 </head>
 @endsection
 @section('main-content')
@@ -33,7 +38,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="page-title-heading">
-								<h1 class="h1-title">CONTACT US</h1>
+								<h1 class="h1-title" style="color: white;">CONTACT US</h1>
 							</div><!-- /.page-title-heading -->
 							<ul class="breadcrumbs">
 								<li><a href="{{ route('landingpage') }}" title="">Home</a></li>
@@ -98,7 +103,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="top-title center">
-							<h2>CONTACT WITH US</h2>
+							<h2 style="color: white;">CONTACT WITH US</h2>
 							<p>We'll help you resolve your issues quickly and easily.</p>
 						</div>
 						@include('inc.messages')

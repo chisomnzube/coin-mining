@@ -23,11 +23,6 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
 
-	<!-- Favicon and touch icons  -->
-    <link href="icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/favicon.png" rel="shortcut icon">
-
 </head>
 @endsection
 
@@ -65,16 +60,19 @@
 								<div class="row">
 									<div class="col-md-6" style="margin: auto; background: white; padding: 20px; box-shadow: 10px 10px 5px #888;">
 										<div class="panel-heading">
-											<h1>Pay with cryptocurrency</h1>
-											<p><b>to {{$username}}</b></p>
+											<h1>Pay {{$result['result']['amount']}} BTC</h1>
+											<p><b>TO</b></p>
 										</div>
 										<hr>
-										<form action="{{ route('payment.process') }}" method="POST" class="form-group">
+										<form action="{{ route('payment.store') }}" method="POST" class="form-group">
 											@csrf
-											<label for="amount">Amount ({{$rcurrency}})</label>
-											<h1>{{$result['result']['amount']}} {{$rcurrency}}</h1>
+											{{-- <label for="amount">Amount ({{$rcurrency}})</label> --}}
+											<h4>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h1>
 											<hr>
-											<a href="{{$result['result']['status_url']}}" class="btn btn-success btn-block">Pay Now</a>
+											<input type="hidden" name="USDamount" value="{{$amount}}">
+											<input type="hidden" name="BTCamount" value="{{$result['result']['amount']}}">
+											<input type="hidden" name="package" value="{{$package}}">
+											<button type="submit" class="btn btn-success btn-block"> Payment Sent</button>
 										</form>
 
 									</div>

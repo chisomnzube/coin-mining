@@ -23,7 +23,12 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet/profile.css">
-
+	<style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 
 </head>
 @endsection
@@ -50,15 +55,15 @@
 										   		<input type="text" name="name" value="{{auth()->user()->name}}" class="form-control">
 										   		<label for="email">Email</label>
 										   		<input type="email" name="email" value="{{auth()->user()->email}}" class="form-control" disabled>
-										   		<p><small>Leave blank if you want to retain formal password</small></p>
+										   		<p><small style="color: black;">Leave blank if you want to retain formal password</small></p>
 										   		<div class="row">
 										   			<div class="col">
 										   				<label for="name">Password</label>
-										   				<input type="password" name="password" value="" class="form-control">
+										   				<input type="password" name="password" value="" class="form-control"  placeholder="Password">
 										   			</div>
 										   			<div class="col">
 										   				<label for="name">Confirm Password</label>
-										   				<input type="password" name="password" value="" class="form-control">
+										   				<input type="password" name="password" value="" class="form-control" placeholder="Confirm password">
 										   			</div>
 										   		</div>
 										   		<br>

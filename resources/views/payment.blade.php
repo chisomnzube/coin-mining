@@ -23,11 +23,6 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
 
-	<!-- Favicon and touch icons  -->
-    <link href="icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/favicon.png" rel="shortcut icon">
-
 </head>
 @endsection
 
@@ -65,9 +60,7 @@
 								<div class="row">
 									<div class="col-md-6" style="margin: auto; background: white; padding: 20px; box-shadow: 10px 10px 5px #888;">
 										<div class="panel-heading">
-											<h1>Pay with cryptocurrency</h1>
-											<p><b>to {{$username}}</b></p>
-											<p><i><b>Package: {{$package}}</b></i></p>
+											<h2><b>Investment Package: {{ strtoupper($package)}}</b></h2>
 										</div>
 										<hr>
 										<form action="{{ route('payment.process') }}" method="POST" class="form-group">
@@ -79,7 +72,7 @@
 											<input type="email" name="email" class="form-control" value="{{auth()->user()->email}}">
 											<br>
 											<input type="hidden" name="package" value="{{$package}}">
-											<button type="submit" class="btn btn-success btn-block">Pay to {{$username}}</button>
+											<button type="submit" class="btn btn-success btn-block">Invest</button>
 										</form>
 
 									</div>

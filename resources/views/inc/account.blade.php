@@ -16,27 +16,33 @@
                       </div>
                       
                       <div class="profile-usermenu">
-                        <ul class="nav">
-                          <li class="active">
+                        <ul class="list-group">
+                          <li class="list-group-item">
                             <a href="{{ route('user.index') }}">
                             <i class="glyphicon glyphicon-home"></i>
                             My Profile </a>
                           </li>
-                          <li>
+                          <li class="list-group-item">
                             <a href="{{ route('user.payout') }}">
                             <i class="glyphicon glyphicon-user"></i>
                             Payout </a>
                           </li>
-                          {{-- <li>
-                            <a href="#" target="_blank">
-                            <i class="glyphicon glyphicon-ok"></i>
-                            Tasks </a>
+                          <li class="list-group-item">
+                            <a href="{{ route('user.referral') }}">
+                            <i class="glyphicon glyphicon-share"></i>
+                            Referral </a>
                           </li>
-                          <li>
-                            <a href="#">
-                            <i class="glyphicon glyphicon-flag"></i>
-                            Help </a>
-                          </li> --}}
+                          <li class="list-group-item">
+                            <a href="{{ route('user.wallet') }}">
+                            <i class="glyphicon glyphicon-share"></i>
+                            My Wallet </a>
+                          </li>
+                          <li class="list-group-item">
+                            <a href="{{ route('user.transaction') }}">
+                            <i class="glyphicon glyphicon-share"></i>
+                            My Transactions </a>
+                          </li>
+                          
                         </ul>
                       </div>
                       <!-- END MENU -->

@@ -24,7 +24,12 @@
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet/profile.css">
 
-
+	<style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 </head>
 @endsection
 @section('main-content')
@@ -46,7 +51,7 @@
 										   @if($user == NULL)
 										   <form action="{{ route('user.payout.store') }}" method="POST" class="form-group">
 										   		@csrf
-										   		<label for="address">BTC Address</label>
+										   		<label for="address" style="color: black;">BTC Address</label>
 										   		<input type="text" name="address" value="" class="form-control">
 										   		<br>
 										   		<button type="submit" class="btn btn-block btn-success">Submit</button>

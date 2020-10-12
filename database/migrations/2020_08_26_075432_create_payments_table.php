@@ -15,14 +15,14 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('payer_id');
             $table->string('payer_email');
-            $table->string('from_currency');
-            $table->string('entered_amount');
-            $table->string('to_currency');
-            $table->string('amount');
-            $table->string('gateway_id');
-            $table->text('gateway_url');
+            $table->string('payer_name');
+            $table->string('USDamount');
+            $table->string('BTCamount');
+            $table->string('package');
             $table->string('status');
+            $table->boolean('payed')->default(false);
             $table->timestamps();
         });
     }

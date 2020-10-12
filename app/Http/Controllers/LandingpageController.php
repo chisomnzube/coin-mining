@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Payment;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Post;
 
@@ -27,9 +28,13 @@ class LandingpageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function transaction()
     {
-        //
+        $payments = Payment::where('status', 'success')->orderBy('id', 'desc')->paginate(20);
+
+        return view('admin-transaction')->with([
+                    'payments' => $payments,
+                ]);
     }
 
     /**

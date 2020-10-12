@@ -2,6 +2,9 @@
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+    <link href="{{ asset('images/logo.jpeg') }}" rel="shortcut icon">
+    <meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
+    <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script>
 @yield('head')
 	<body>
 		<div class="boxed">
@@ -49,8 +52,9 @@
 				<div class="row">
 					<div class="header-wrap">
 						<div id="logo" class="logo">
-							<a href="index.html" title="">
-								<img src="{{ asset('images/logo.png') }}" alt="{{config('app.name')}}" />
+							<a href="{{ route('landingpage') }}" title="">
+								{{-- <img src="{{ asset('images/logo.png') }}" alt="{{config('app.name')}}" /> --}}
+								<h1>{{config('app.name')}}</h1>
 							</a>
 						</div><!-- /#logo -->
 						<div class="flat-show-search">
@@ -80,10 +84,12 @@
                                     <li>
                                         <a href="{{ route('about') }}" title="">ABOUT</a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
 										<a href="{{ route('investment') }}" title="">INVESTMENT</a>
-									</li>
-                                    
+									</li> --}}
+                                    {{-- <li>
+										<a href="{{ route('licence') }}" title="">LICENCE</a>
+									</li> --}}
                                     <li>
 										<a href="{{ route('blog.index') }}" title="">BLOG</a>
 										
@@ -111,10 +117,10 @@
 									<div class="widget-text">
 										<div id="logo-ft">
 											<a href="#" title="">
-												<img src="{{ asset('images/logo-ft.png') }}" alt="{{config('app.name')}}">
+												<h1 style="color: white;">{{config('app.name')}}</h1>
 											</a>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a rhoncus risus atione Pellentesque sodales risus aut
+										<p>{{config('app.name')}} is an investment platform that pays High Return on Investment.
 										</p>
 									</div>
 									<div class="widget widget-newletter">
@@ -136,17 +142,16 @@
 									<h3 class="widget-title">QUICK LINK</h3>
 									<ul class="menu-footer one-half">
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Forum</a></li>
-										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> News</a></li>
+										<li><a href="{{ route('blog.index') }}" title=""><i class="fa fa-angle-double-right"></i> News</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Advertise</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Jobs</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Wallets</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Guide</a></li>
 									</ul><!-- /.one-half -->
 									<ul class="menu-footer one-half">
-										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ</a></li>
-										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Chart</a></li>
-										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Term</a></li>
-										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Legal</a></li>
+										<li><a href="{{ route('faq') }}" title=""><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+										<li><a href="{{ route('tandc') }}" title=""><i class="fa fa-angle-double-right"></i> Terms</a></li>
+										<li><a href="{{ route('about') }}" title=""><i class="fa fa-angle-double-right"></i> About us</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Pivacy</a></li>
 										<li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Partners</a></li>
 									</ul><!-- /.one-half -->
@@ -202,6 +207,10 @@
 					</div><!-- /.row -->
 				</div><!-- /.container -->
 			</div><!-- /.footer -->
+			<div class="text-center">
+				<b>We Accept</b>
+				<img src="{{ asset('images/bitcoin.png') }}">
+			</div>
 			<div class="footer-bottom">
 				<div class="container">
 					<div class="row">
@@ -221,7 +230,7 @@
 								</li>
 							</ul>
 							<div class="copyright">
-								<p>© Copyright <a href="#" title="">{{config('app.name')}}</a> Developed by <a href="https://www.webfluxy.com" title="">Webfluxy</a> {{date('Y')}}</p>
+								<p>© Copyright <a href="#" title="">{{config('app.name')}}</a> {{date('Y')}}</p>
 							</div>
 						</div>
 					</div>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
+use App\Referral;
+use App\ReferralAccount;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -52,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'referral' => ['string', 'max:255'],
         ]);
     }
 
@@ -63,10 +66,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $refID = $data['referral'];
+
+        if ($refID == NULL || $refID == 'Admin') 
+            {
+                Referral::create([
+                    'referral' => $refID,
+                    'referred' => $user->id,
+                    'claimed' => 1,
+                ]);
+            }else
+                {
+                    Referral::create([
+                        'referral' => $refID,
+                        'referred' => $user->id,
+                    ]);
+                }
+
+        ReferralAccount::create([
+            'user_id' => $user->id,
+            'amount' => 0,
+        ]);
+                
+        return $user;
     }
 }

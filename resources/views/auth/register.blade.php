@@ -74,6 +74,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="contact-form-comment contact-form">
+                                        <label for="referral">Referral ID</label>
+                                        <input type="text" name="referral" id="referral" class="form-control @error('referral') is-invalid @enderror" placeholder="Your referral" value="{{request()->input('ref') != NULL ? request()->input('ref') : 'Admin'}}" required/>
+                                    </div>
                                     
                                     <div class="btn-contact-form center">
                                         <button type="submit" class="flat-button-form border-radius-2">Register</button>

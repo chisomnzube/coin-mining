@@ -22,7 +22,12 @@
 
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
-
+	<style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 
 </head>
 @endsection
@@ -47,7 +52,7 @@
 			</div><!-- /.title-heading -->
 		</div><!-- /.page-title -->
 
-		<section class="main-content ">
+		<section class="main-content " style="background-color: black; color: white;">
 			<div class="container">
 				<div class="row">
 					@if($posts->count() > 0)

@@ -23,7 +23,12 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('stylesheet/responsive.css') }}">
 
-
+	<style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 </head>
 @endsection
 
@@ -48,7 +53,7 @@
 			</div><!-- /.title-heading -->
 		</div><!-- /.page-title --> --}}
 
-		<section class="main-content">
+		<section class="main-content" style="background-color: black; color: white;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -59,7 +64,7 @@
 								</a>
 							</div><!-- /.featured-post -->
 							<div class="entry-title">
-								<h2>
+								<h2 style="color: white;">
 									{{$post->title}}
 								</h2>
 								<ul class="meta-left">

@@ -27,11 +27,12 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
 
-	<!-- Favicon and touch icons  -->
-    <link href="icon/apple-touch-icon-48-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="icon/favicon.png" rel="shortcut icon">
-
+    <style>
+    	body{
+    		background-color: black;
+    		color: white;
+    	}
+    </style>
 </head>
 @endsection
 
@@ -136,110 +137,117 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="wrap-recent-text">
-							<h2 class="title">ABOUT US</h2>
+							<h2 class="title" style="color: white; ">ABOUT US</h2>
 							<div class="content-text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat pretium tincidunt. Donec ultricies pulvinar velit, eget euismod sapien. Duis pharetra sed ante blandit posuere. Etiam placerat metus.</p>
-								<p>Proin at metus congue, semper nunc sed, sollicitudin dui. Nunc utcon dimentum mi. In pharetra ipsum leo, velas porttitor elit posuere eu. Pellentesque aliquam, neque at maximus rhoncus, ante tortor.</p>
-								<a href="#" class="read-more" title="">GET STARTED</a>
+								<p>coin-mining.club offers a unique opportunity for everyone who wants to make money on investing in the progressive currency Bitcoin. Our main activity is the mining of the cryptocurrency, through the use of special computers – miners and algorithms used to solve complex equations. Increasing our capital in Bitcoins, we also carry out one more activity - the trade in cryptocurrency on the exchange.</p>
+
+								<p>Acting in two directions at once, we receive a stable profit, we guarantee the success of the project and the regularity of payments. We work around the clock, concluding the most successful transactions, trading on the exchange in order to get maximum benefits.</p>
+								
+								
 							</div>
 						</div><!-- /.wrap-recent-text -->
 					</div><!-- /.col-md-6 -->
 					<div class="col-md-6">
 						<div class="single-image center">
-							<img src="images/page/laptop-1.png" alt="">
+							{{-- <img src="images/page/laptop-1.png" alt=""> --}}
+							<h2 style="color: white;">Company's Licence</h2>
+								<a href="{{ asset('images/certified.pdf') }}" target="_blank">
+									<img src="{{ asset('images/certi.png') }}">
+								</a>
 						</div>
 					</div><!-- /.col-md-6 -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 		</section><!-- /.flat-recent-market -->
 
-		<section class="flat-why-choose style1 bg-browse">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="top-title center">
-							<h2>WHY CHOOSE BITCOIN</h2>
-							<p>Bitcoin makes it easy to send real money quickly to anywhere in the world.</p>
-						</div>
-					</div>
-				</div><!-- /.row -->
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/security-1.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">SECURITY</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/mobile-app-1.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">MOBILE APP</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/wallet-1.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">SECURE WALLET</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/insurance-1.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">INSURANCE</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/exchange-1.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">INSTANT EXCHANGE</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-					<div class="col-md-4 col-sm-6">
-						<div class="iconbox style3 center">
-							<div class="icon">
-								<img src="images/icon/buying.png" alt="">
-							</div>
-							<div class="iconbox-content">
-								<h4><a href="#" title="">RECURRING BUYING</a></h4>
-								<p>In pretium neque a libero congue. In diam lectus, Praesent lacinia vitae elit ut mattis. Etiam et mollis dui maximus.</p>
-							</div>
-						</div><!-- /.iconbox style3 -->
-					</div><!-- /.col-md-4 sol-sm-6 -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</section><!-- /.flat-why-choose style1 -->
 
 		<section class="flat-our-work">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="top-title center">
-							<h2>HOW IT WORKS</h2>
+							<h2 style="color: white;">Reasons for choosing coin-mining company</h2>
+							<p>Bitcoin is received, stored, and sent using software known as a 'Bitcoin Wallet'</p>
+						</div>
+					</div>
+				</div><!-- /.row -->
+				<div class="row">
+					<div class="col-md-6">
+						<div class="wrap-iconbox">
+							<div class="iconbox inline-left style4">
+								<div class="icon">
+									<i class="fa fa-users fa-3x"></i>
+								</div>
+								<div class="number">
+									1
+								</div>
+								<div class="iconbox-content">
+									<h4><a href="#" title="" style="color: white;">Experienced Our Trading Team</a></h4>
+									<p>Coin Mining is a team of professional in cryptocurrency mining. who know how cryptocurrency mining works.</p>
+								</div>
+							</div><!-- /.iconbox style4 -->
+							<div class="iconbox inline-left style4">
+								<div class="icon">
+									<i class="fa fa-cog fa-3x"></i>
+								</div>
+								<div class="number">
+									2
+								</div>
+								<div class="iconbox-content">
+									<h4><a href="#" title="" style="color: white;">Strong DDoS Protection</a></h4>
+									<p>Coin-mining.club web server is protected by DDOS-Guard, It's one of the world's trusted DDoS Protection and mitigation provider.</p>
+								</div>
+							</div><!-- /.iconbox style4 -->
+							{{-- <div class="iconbox inline-left style4">
+								<div class="icon">
+									<img src="images/icon/orders-1.png" alt="">
+								</div>
+								<div class="number">
+									3
+								</div>
+								<div class="iconbox-content">
+									<h4><a href="#" title="" style="color: white;">Comfort and protection</a></h4>
+									<p>Your charges are displayed in your personal cabinet, you can access it from any device, and all your accounts are securely encrypted.</p>
+								</div>
+							</div> --}}<!-- /.iconbox style4 -->
+						</div><!-- /.wrap-iconbox -->
+					</div><!-- /.col-md-6 -->
+					<div class="col-md-6">
+						<div class="iconbox inline-left style4">
+								<div class="icon">
+									<img src="images/icon/orders-1.png" alt="">
+								</div>
+								<div class="number">
+									1
+								</div>
+								<div class="iconbox-content">
+									<h4><a href="#" title="" style="color: white;">Secure Transaction</a></h4>
+									<p>We are using EV SSL encryption and has a green address bar that confirms that your transaction is secure with us.</p>
+								</div>
+							</div><!-- /.iconbox style4 -->
+							<div class="iconbox inline-left style4">
+								<div class="icon">
+									<i class="fa fa-question fa-3x"></i>
+								</div>
+								<div class="number">
+									2
+								</div>
+								<div class="iconbox-content">
+									<h4><a href="#" title="" style="color: white;">24/7 Friendly Support</a></h4>
+									<p>We understand how important having reliable support service is to you. Please don't hesitate to contact us !</p>
+								</div>
+							</div><!-- /.iconbox style4 -->
+					</div><!-- /.col-md-6 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-our-work -->
+
+		<section class="flat-our-work">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="top-title center">
+							<h2 style="color: white;">HOW IT WORKS</h2>
 							<p>Bitcoin is received, stored, and sent using software known as a 'Bitcoin Wallet'</p>
 						</div>
 					</div>
@@ -255,8 +263,8 @@
 									1
 								</div>
 								<div class="iconbox-content">
-									<h4><a href="#" title="">CREAT ACCOUNT</a></h4>
-									<p>In Aenean lacus purus, pretium sit amet sapien. Nam elementum faucibus, morbi tempor, justo et dapibus volutpat.aliquam.</p>
+									<h4><a href="#" title="" style="color: white;">CREAT ACCOUNT</a></h4>
+									<p>You have to create an account by signing up usint this <a href="/register">link</a></p>
 								</div>
 							</div><!-- /.iconbox style4 -->
 							<div class="iconbox inline-left style4">
@@ -267,8 +275,8 @@
 									2
 								</div>
 								<div class="iconbox-content">
-									<h4><a href="#" title="">MAKE PAYMENT</a></h4>
-									<p>In Aenean lacus purus, pretium sit amet sapien. Nam elementum faucibus, morbi tempor, justo et dapibus volutpat.aliquam erat volutpat.</p>
+									<h4><a href="#" title="" style="color: white;">CHOOSE iNVESTMENT PLAN</a></h4>
+									<p>Choose an investment plan that suits you</p>
 								</div>
 							</div><!-- /.iconbox style4 -->
 							<div class="iconbox inline-left style4">
@@ -279,8 +287,8 @@
 									3
 								</div>
 								<div class="iconbox-content">
-									<h4><a href="#" title="">BUY OR SELL ORDERS</a></h4>
-									<p>In Aenean lacus purus, pretium sit amet sapien. Nam elementum faucibus, morbi tempor, justo et dapibus volutpat.aliquam erat volutpat.</p>
+									<h4><a href="#" title="" style="color: white;">REFERRAL</a></h4>
+									<p>Getting a bonus from the company is nice. Especially when it takes a minimum effort. Just tell everyone about your success in out company and give your individual link to register new investors. Once your referral makes a deposite, you make earn a profit of 7% of the amount.</p>
 								</div>
 							</div><!-- /.iconbox style4 -->
 						</div><!-- /.wrap-iconbox -->
@@ -296,19 +304,19 @@
 
 		<section class="flat-our-work">
 			<div class="container">
-				<h1 style="text-align: center;">Packages</h1>
+				<h1 style="text-align: center; color: white;" >Packages</h1>
 				<div class="card-deck mb-3 text-center">
-			        <div class="card mb-4 box-shadow">
+			        <div class="card mb-4 box-shadow" style="color: black;">
 			          <div class="card-header">
 			            <h4 class="my-0 font-weight-normal">Lite</h4>
 			          </div>
 			          <div class="card-body">
-			            <h1 class="card-title pricing-card-title">10%<br>After <br> 15 hours</h1>
+			            <h1 class="card-title pricing-card-title">10.5%<br>After <br> 18 hours</h1>
 			            <ul class="list-unstyled mt-3 mb-4">
 			              <li>Minimum</li>
 			              <li>$20</li>
 			              <li>Maximum</li>
-			              <li>$499</li>
+			              <li>$70,590.00</li>
 			            </ul>
 			            <form action="{{ route('payment.index') }}" method="post">
 			            	@csrf
@@ -317,17 +325,17 @@
 			            </form>
 			          </div>
 			        </div>
-			        <div class="card mb-4 box-shadow">
+			        <div class="card mb-3 box-shadow" style="color: black;">
 			          <div class="card-header">
 			            <h4 class="my-0 font-weight-normal">Pro</h4>
 			          </div>
 			          <div class="card-body">
-			            <h1 class="card-title pricing-card-title">35% <br>After <br>24 hours</h1>
+			            <h1 class="card-title pricing-card-title">35% <br>After <br>35 hours</h1>
 			            <ul class="list-unstyled mt-3 mb-4">
 			              <li>Minimum</li>
-			              <li>$500</li>
+			              <li>$250.00</li>
 			              <li>Maximum</li>
-			              <li>$999</li>
+			              <li>$20,000.00</li>
 			            </ul>
 			            <form action="{{ route('payment.index') }}" method="post">
 			            	@csrf
@@ -336,17 +344,17 @@
 			            </form>
 			          </div>
 			        </div>
-			        <div class="card mb-4 box-shadow">
+			        <div class="card mb-3 box-shadow" style="color: black;">
 			          <div class="card-header">
 			            <h4 class="my-0 font-weight-normal">Max</h4>
 			          </div>
 			          <div class="card-body">
-			            <h1 class="card-title pricing-card-title">65% <br> After <br> 72 Hours</h1>
+			            <h1 class="card-title pricing-card-title">15% <br> Hourly</h1>
 			            <ul class="list-unstyled mt-3 mb-4">
 			              <li>Minimum</li>
-			              <li>$1,000</li>
+			              <li>$1,520.00</li>
 			              <li>Maximum</li>
-			              <li>UNLIMITED</li>
+			              <li>4,550.00</li>
 			            </ul>
 			            <form action="{{ route('payment.index') }}" method="post">
 			            	@csrf
@@ -355,20 +363,39 @@
 			            </form>
 			          </div>
 			        </div>
+			        <div class="card mb-3 box-shadow" style="color: black;">
+			          <div class="card-header">
+			            <h4 class="my-0 font-weight-normal">Elite</h4>
+			          </div>
+			          <div class="card-body">
+			            <h1 class="card-title pricing-card-title">96% <br>After <br>4 days</h1>
+			            <ul class="list-unstyled mt-3 mb-4">
+			              <li>Minimum</li>
+			              <li>$3,100.00</li>
+			              <li>Maximum</li>
+			              <li>$9,500.00</li>
+			            </ul>
+			            <form action="{{ route('payment.index') }}" method="post">
+			            	@csrf
+			            	<input type="hidden" name="type" value="elite">
+			            	<button type="submit" class="btn btn-lg btn-block btn-primary">Invest</button>
+			            </form>
+			          </div>
+			        </div>
 			      </div>
 			</div>
 		</section>
 
-		<section class="flat-price-coin bg-browse">
+		<section class="flat-price-coin bg-browse" style="color: white; background-color: black;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="top-title center">
-							<h2>CRYPTOCURRENCY PRICES</h2>
-							<p>The Bitcoin ecosystem at a glance. Any of our service with free test credits or actual Bitcoins.</p>
+							<h2 style="color: white;">CRYPTOCURRENCY PRICES</h2>
+							<p >The Bitcoin ecosystem at a glance. Any of our service with free test credits or actual Bitcoins.</p>
 						</div>
 						<!-- TradingView Widget BEGIN -->
-						<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container" style="color: white; background-color: black;">
 						  <div class="tradingview-widget-container__widget"></div>
 						  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
 						  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
@@ -445,7 +472,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="top-title center">
-							<h2>NEWS & EVENTS</h2>
+							<h2 style="color: white;">NEWS & EVENTS</h2>
 							<p>We are the world's premier 24/7 news feed covering everything bitcoin-related.</p>
 						</div>
 					</div>
