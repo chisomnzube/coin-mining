@@ -17,8 +17,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="flat-infomation">
-							<li class="email"><a href="mailto:themesflat@gmail.com" title="email">Email: infodeercreative@gmail.com</a></li>
-							<li class="phone"><a href="+61383766284" title="phone">Call Us: +1 234 800 8080</a></li>
+							<li class="email"><a href="mailto:contact@coin-mining.club" title="email">Email: contact@coin-mining.club</a></li>
+							{{-- <li class="phone"><a href="+61383766284" title="phone">Call Us: +1 234 800 8080</a></li> --}}
 						</ul><!-- /.flat-infomation -->
 						<ul class="box-account">
 							@guest
@@ -161,14 +161,14 @@
 								<div class="widget widget_contact">
 									<h3 class="widget-title">CONTACT</h3>
 									<ul class="contact-list">
-										<li>
+										{{-- <li>
 											Address: <span>9291 Proin Road, Lake Charles Maine 11292</span>
 										</li>
 										<li>
 											Phone: <span>+1 234 800 8080</span>
-										</li>
+										</li> --}}
 										<li>
-											Email: <span>info.deercreative@gmail.com</span>
+											Email: <span>contact@coin-mining.club</span>
 										</li>
 									</ul>
 									<div class="widget widget_themesflat_socials">            
