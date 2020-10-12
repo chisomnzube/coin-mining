@@ -213,13 +213,13 @@ class PaymentController extends Controller
                             'user_id' => $check->referral,
                         ]);
                         //send email to referral
-                        //Mail::send(new ReferralMail($check->referral));
+                        Mail::send(new ReferralMail($check->referral));
 
                     }
             }
 
         //send email to customer
-        //Mail::send(new OrderPlaced($order));
+        Mail::send(new OrderPlaced($order));
 
         return redirect()->route('payment.confirmation')->with([
             'success_message'=> 'Thank You '.auth()->user()->name.', for investing in Crypto Mining we will confirm your transaction and send your Returns on Investment in due time',

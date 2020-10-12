@@ -63,6 +63,6 @@ trait RegistersUsers
         $name = $user->name;
         $email = $user->email;
 
-        //Mail::send(new RegisteredUser($name, $email));
+        Mail::send(new RegisteredUser($name, $email));
     }
 }
