@@ -7,6 +7,8 @@
 	<title>Payment | {{config('app.name')}}</title>
 
 	<meta name="author" content="themsflat.com">
+	<meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
+	
 
 	<!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
