@@ -29,24 +29,7 @@
 @endsection
 
 @section('main-content')		
-		{{-- <div class="page-title">
-			<div class="title-heading">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="page-title-heading">
-								<h1 class="h1-title">ERROR 404</h1>
-							</div><!-- /.page-title-heading -->
-							<ul class="breadcrumbs">
-								<li><a href="#" title="">Home</a></li>
-								<li class="dot">/</li>
-								<li>Error 404</li>
-							</ul><!-- /.breadcrumbs -->
-						</div><!-- /.col-md-12 -->
-					</div><!-- /.row -->
-				</div><!-- /.container -->
-			</div><!-- /.title-heading -->
-		</div><!-- /.page-title --> --}}
+		
 
 		<section class="error-404 not-found" style="background-image: url('images/bg.jpeg');">
 			<div class="container">
@@ -62,7 +45,7 @@
 								<div class="row">
 									<div class="col-md-6" style="margin: auto; background: white; padding: 20px; box-shadow: 10px 10px 5px #888;">
 										<div class="panel-heading">
-											<h1>Pay {{$result['result']['amount']}} BTC</h1>
+											<h1>Pay {{$price}} BTC</h1>
 											<p><b>TO</b></p>
 										</div>
 										<hr>
@@ -72,7 +55,7 @@
 											<h4>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h1>
 											<hr>
 											<input type="hidden" name="USDamount" value="{{$amount}}">
-											<input type="hidden" name="BTCamount" value="{{$result['result']['amount']}}">
+											<input type="hidden" name="BTCamount" value="{{$price}}">
 											<input type="hidden" name="package" value="{{$package}}">
 											<button type="submit" class="btn btn-success btn-block"> Payment Sent</button>
 										</form>

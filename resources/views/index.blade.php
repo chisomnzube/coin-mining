@@ -152,7 +152,7 @@
 						<div class="single-image center">
 							{{-- <img src="images/page/laptop-1.png" alt=""> --}}
 							<h2 style="color: white;">Company's Licence</h2>
-								<a href="{{ asset('images/certified.pdf') }}" target="_blank">
+								<a href="{{ asset('images/certified.jpeg') }}" target="_blank">
 									<img src="{{ asset('images/certi.png') }}">
 								</a>
 						</div>
@@ -242,6 +242,57 @@
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 		</section><!-- /.flat-our-work -->
+
+		<section class="flat-why-choose style1 bg-browse">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="top-title center">
+							<h2>WHY CHOOSE BITCOIN</h2>
+							<p style="color: black;">Bitcoin makes it easy to send real money quickly to anywhere in the world.</p>
+						</div>
+					</div>
+				</div><!-- /.row -->
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="iconbox style3 center">
+							<div class="icon">
+								<img src="images/icon/security-1.png" alt="">
+							</div>
+							<div class="iconbox-content">
+								<h4><a href="#" title="">SECURITY</a></h4>
+								<p>It's one of the most secured cryptocurrency in the world.</p>
+							</div>
+						</div><!-- /.iconbox style3 -->
+					</div><!-- /.col-md-4 sol-sm-6 -->
+					
+					<div class="col-md-4 col-sm-6">
+						<div class="iconbox style3 center">
+							<div class="icon">
+								<img src="images/icon/wallet-1.png" alt="">
+							</div>
+							<div class="iconbox-content">
+								<h4><a href="#" title="">SECURE WALLET</a></h4>
+								<p>Bitcoin's wallet is very secure and protected against Internet scammers.</p>
+							</div>
+						</div><!-- /.iconbox style3 -->
+					</div><!-- /.col-md-4 sol-sm-6 -->
+					
+					<div class="col-md-4 col-sm-6">
+						<div class="iconbox style3 center">
+							<div class="icon">
+								<img src="images/icon/exchange-1.png" alt="">
+							</div>
+							<div class="iconbox-content">
+								<h4><a href="#" title="">INSTANT EXCHANGE</a></h4>
+								<p>You can exchange bitcoin for your product ai services.</p>
+							</div>
+						</div><!-- /.iconbox style3 -->
+					</div><!-- /.col-md-4 sol-sm-6 -->
+					
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-why-choose style1 -->
 
 		<section class="flat-our-work">
 			<div class="container">

@@ -42,18 +42,7 @@ class PaymentController extends Controller
                         }
 
 
-        require "Coin.php";
-
-        $coin = new \CoinPaymentsAPI();
-        $coin->Setup("e56759262Dfc97a2e95859088f591b05b4015559EDFD42a4d1f2bac995f597Af","a6fd8f0e50cf6e8efc4550917ab47814636a37a1a62e87225fe110da7df801eb");
-
-        $basicInfo = $coin->GetBasicProfile();
-        //dd($basicInfo);
-        $username = $basicInfo['result']['public_name'];
-        //dd($username);
-
         return view('payment')->with([
-                    'username' => $username,
                     'min' => $min,
                     'max' => $max,
                     'package' => $type,
@@ -109,40 +98,20 @@ class PaymentController extends Controller
         $scurrency = "USD";
         $rcurrency = "BTC";
 
-        $drequest = [
-            'amount' => $amount,
-            'currency1' => $scurrency,
-            'currency2' => $rcurrency,
-            'buyer_email' => $email,
-            'item' => "Donation to Onthrone",
-            'address' => "",
-            'ipn_url' => "http://crypto.com/webhook.php"
-        ];
+        $checkprice = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
+        $checkprice = json_decode($checkprice, true);
 
-        require "Coin.php";
+        $maths = $amount / $checkprice['USD'];
+        $price = round($maths, 6);
 
-        $coin = new \CoinPaymentsAPI();
-        $coin->Setup("e56759262Dfc97a2e95859088f591b05b4015559EDFD42a4d1f2bac995f597Af","a6fd8f0e50cf6e8efc4550917ab47814636a37a1a62e87225fe110da7df801eb");
+                               
+        return view('payment-create')->with([
+            'amount' => $amount,  
+            'rcurrency' =>  $rcurrency,
+            'price' => $price,
+            'package' => $package, 
+        ]);
 
-        $basicInfo = $coin->GetBasicProfile();
-        //dd($basicInfo);
-        $username = $basicInfo['result']['public_name'];
-
-        $result = $coin->CreateTransaction($drequest);
-
-        //dd($result);
-        if ($result['error'] == "ok") 
-            {                                
-                return view('payment-create')->with([
-                    'amount' => $amount,  
-                    'rcurrency' =>  $rcurrency,
-                    'result' => $result,
-                    'package' => $package, 
-                ]);
-            }else
-                {
-                    dd('Error: '.$result['error']);
-                }
 
     }
 
