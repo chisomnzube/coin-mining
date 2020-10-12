@@ -2,8 +2,7 @@
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
-    <link href="{{ asset('images/logo.jpeg') }}" rel="shortcut icon">
-    <meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
+    <link href="{{ asset('images/logo.jpeg') }}" rel="shortcut icon">    
     <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script>
 @yield('head')
 	<body>
