@@ -3,9 +3,9 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
     <link href="{{ asset('images/logo.jpeg') }}" rel="shortcut icon">    
-    {{-- <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script> --}}
+    <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script>
     <!--Start of Tawk.to Script-->
-	<script type="text/javascript">
+	{{-- <script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 	(function(){
 	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -15,7 +15,7 @@
 	s1.setAttribute('crossorigin','*');
 	s0.parentNode.insertBefore(s1,s0);
 	})();
-	</script>
+	</script> --}}
 	<!--End of Tawk.to Script-->
 @yield('head')
 	<body>
