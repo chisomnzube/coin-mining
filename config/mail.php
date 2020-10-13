@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contact@cryptomining.com'),
-        'name' => env('MAIL_FROM_NAME', 'Crypto Mining'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@coin-mining.club'),
+        'name' => env('MAIL_FROM_NAME', 'Coin Mining'),
     ],
 
     /*

@@ -33,8 +33,8 @@ class ReferralMail extends Mailable
         $user = User::find($userID);
 
         return $this->to($user->email, $user->name)
-            ->bcc('no-reply@cryptomining.com')
-            ->subject('Referral Bonus - Crypto Mining')
+            ->bcc('no-reply@coin-mining.club')
+            ->subject('Referral Bonus - Coin Mining')
             ->view('emails.orders.referral');
     }
 }

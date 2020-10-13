@@ -32,8 +32,8 @@ class OrderPlaced extends Mailable
     public function build()
     {
         return $this->to($this->order->payer_email, $this->order->payer_name)
-            ->bcc('no-reply@cryptomining.com')
-            ->subject('Order Confirmation - Crypto Mining')
+            ->bcc('no-reply@coin-mining.club')
+            ->subject('Order Confirmation - Coin Mining')
             ->view('emails.orders.placed');
     }
 }

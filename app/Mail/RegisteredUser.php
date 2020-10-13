@@ -32,7 +32,7 @@ class RegisteredUser extends Mailable
     {
         return $this->to($this->email, $this->name)
                     ->bcc($this->email)
-                    ->subject('Welcome to Crypto Mining')
+                    ->subject('Welcome to Coin Mining')
                     ->view('emails.user.registered');
     }
 }
