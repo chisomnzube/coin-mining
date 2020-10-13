@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Welcome to Crypt Mining</title>
+<title>Welcome to Coin Mining</title>
 	
 <style >
 	/* ------------------------------------- 
@@ -270,12 +270,12 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 					<td>
 						
 						<h3>Hi, {{$name}}</h3>
-						<p class="lead">Welcome to Crypto Mining. Feel free to invest with us.
+						<p class="lead">Welcome to Coin Mining. Feel free to invest with us.
 						</p>
 
 						<p>
 							Warm regards <br>
-							Crypto Mining Team
+							Coin Mining Team
 						</p>
 												
 						<br/>

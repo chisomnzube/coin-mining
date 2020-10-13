@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Referral Bonus | Crypto Mining</title>
+<title>Referral Bonus | Coin Mining</title>
 <style>
 	/* ------------------------------------- 
 		GLOBAL 
