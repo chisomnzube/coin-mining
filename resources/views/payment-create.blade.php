@@ -59,7 +59,15 @@
 											<input type="hidden" name="package" value="{{$package}}">
 											<button type="submit" class="btn btn-success btn-block"> Payment Sent</button>
 										</form>
-
+										@if(auth()->user()->balance >= $amount)
+										<form action="{{ route('payment.wallet.store') }}" method="POST">
+											@csrf
+											<input type="hidden" name="USDamount" value="{{$amount}}">
+											<input type="hidden" name="BTCamount" value="{{$price}}">
+											<input type="hidden" name="package" value="{{$package}}">
+											<button type="submit" class="btn btn-info"> Pay From wallet</button>
+										</form>
+										@endif
 									</div>
 
 									{{-- <div class="col-md-6">

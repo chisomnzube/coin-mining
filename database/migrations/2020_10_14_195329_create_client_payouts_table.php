@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCashOutsTable extends Migration
+class CreateClientPayoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCashOutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cash_outs', function (Blueprint $table) {
+        Schema::create('client_payouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('user_email');
-            $table->string('user_wallet');
+            $table->integer('client_id');
+            $table->string('client_email');
+            $table->string('client_wallet');
             $table->string('amount');
-            $table->boolean('payed')->default(false);
+            $table->boolean('payed')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCashOutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cash_outs');
+        Schema::dropIfExists('client_payouts');
     }
 }

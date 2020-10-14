@@ -22,7 +22,8 @@ class CreatePaymentsTable extends Migration
             $table->string('BTCamount');
             $table->string('package');
             $table->string('status');
-            $table->boolean('payed')->default(false);
+            $table->boolean('expired')->default(false);
+            $table->boolean('balanced')->default(false);
             $table->timestamps();
         });
     }

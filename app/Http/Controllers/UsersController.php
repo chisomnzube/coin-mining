@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\CashOut;
+use App\ClientPayout;
+use App\Mail\WithdrawalMail;
 use App\Payment;
 use App\Payout;
 use App\ReferralAccount;
 use App\ReferralTransaction;
+use App\User;
 use App\WalletAddress;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
@@ -28,6 +32,28 @@ class UsersController extends Controller
 
         return view('user-transaction')->with([
             'payments' => $payments,
+        ]);
+    }
+
+    public function withdrawal()
+    {
+        $paymentBalance = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->get()->sum('USDamount');
+        //dd($paymentBalance);
+
+        $total = auth()->user()->balance + $paymentBalance;
+        User::where('id', auth()->user()->id)->update([
+            'balance' => $total,
+        ]);
+
+        $payments = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->update([
+            'balanced' => 1,
+        ]);
+        
+        $withdrawls = ClientPayout::where('client_id', auth()->user()->id)->get();
+        
+
+        return view('user-withdrawal')->with([
+            'withdrawls' => $withdrawls,
         ]);
     }
 
@@ -105,7 +131,42 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'amount' => 'required',
+        ]);
+
+        $amount = $request->input('amount');
+        if ($amount > auth()->user()->balance) 
+            {
+                return back()->with('error_message', 'Insufficient fund');
+            }
+
+        $payout = Payout::where('user_id', auth()->user()->id)->first();
+        if (!$payout) 
+            {
+                return back()->with('error_message', 'You have not filled your payout details click the <a href="/my-payout">link</a>');
+            }
+
+        $remain = auth()->user()->balance - $amount;
+
+        User::where('id', auth()->user()->id)->update([
+            'balance' => $remain,
+        ]);
+
+        
+        ClientPayout::create([
+            'client_id' => auth()->user()->id,
+            'client_email' => auth()->user()->email,
+            'client_wallet' => $payout->address,
+            'amount' => $amount,
+        ]);
+
+        $name = auth()->user()->name;
+        $email = auth()->user()->email;
+        //send mail
+        Mail::send(new WithdrawalMail($name, $email, $amount));
+
+        return back()->with('success_message', 'Withdrawal successful, you will receive your money ASAP');
     }
 
     public function payoutStore(Request $request)
@@ -199,6 +260,7 @@ class UsersController extends Controller
                     'user_id' => auth()->user()->id,
                     'user_email' => auth()->user()->email,
                     'user_wallet' => $checkpayout->address,
+                    'amount' => $check->amount,
                 ]);
 
                 //this is to reduce the referral cash to zero

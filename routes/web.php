@@ -54,6 +54,7 @@ Route::post('/payment', 'PaymentController@index')->name('payment.index');
 Route::post('/payment-process', 'PaymentController@create')->name('payment.process');
 Route::post('/payment-store', 'PaymentController@store')->name('payment.store');
 Route::get('/payment-confirmation', 'PaymentController@confirmation')->name('payment.confirmation');   
+Route::post('/payment-wallet-store', 'PaymentController@paymentwallet')->name('payment.wallet.store');
 
 //route for users
 Route::get('/account', 'UsersController@index')->name('user.index'); 
@@ -76,6 +77,8 @@ Route::post('/update-my-wallet', 'UsersController@walletUpdate')->name('user.wal
 //my transactions
 Route::get('/my-transactions', 'UsersController@transaction')->name('user.transaction');
 Route::get('/transactions-admin', 'LandingpageController@transaction')->name('admin.transaction');
+Route::get('/my-withdrawal', 'UsersController@withdrawal')->name('withdrawal.index');
+Route::post('/store-withdrawal', 'UsersController@store')->name('withdrawal.store');
 
 });
 
