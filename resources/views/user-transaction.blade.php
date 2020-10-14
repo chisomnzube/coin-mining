@@ -50,7 +50,7 @@
 									<div class="col-md-9">
 							            <div class="profile-content" style="color: black;">
 										   <h2>My Transactions</h2>
-										   
+										   <div class="table-responsive">
 										   <table class="table table-striped">
 											  <thead>
 											    <tr>
@@ -79,7 +79,7 @@
 											  </tbody>
 											  @endif
 											</table>
-										   
+										   </div>
 							            </div>
 									</div>
 								</div>

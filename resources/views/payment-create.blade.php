@@ -52,7 +52,7 @@
 										<form action="{{ route('payment.store') }}" method="POST" class="form-group">
 											@csrf
 											{{-- <label for="amount">Amount ({{$rcurrency}})</label> --}}
-											<h4>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h1>
+											<h5>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h5>
 											<hr>
 											<input type="hidden" name="USDamount" value="{{$amount}}">
 											<input type="hidden" name="BTCamount" value="{{$price}}">
