@@ -3,8 +3,8 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
     <link href="{{ asset('images/logo.jpeg') }}" rel="shortcut icon">
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="b0e344f8-ce25-4a66-bb9d-e4e8e5759331";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>    
-    {{-- <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script> --}}
+    {{-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="b0e344f8-ce25-4a66-bb9d-e4e8e5759331";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>   --}}  
+    <script src="//code.jivosite.com/widget/GC9E0LzVor" async></script>
     <!--Start of Tawk.to Script-->
 	{{-- <script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
