@@ -191,7 +191,7 @@ class PaymentController extends Controller
         Mail::send(new OrderPlaced($order));
 
         return redirect()->route('payment.confirmation')->with([
-            'success_message'=> 'Thank You '.auth()->user()->name.', for investing in Crypto Mining we will confirm your transaction and send your Returns on Investment in due time',
+            'success_message'=> 'Thank You '.auth()->user()->name.', for investing in Coin Mining we will confirm your transaction and send your Returns on Investment in due time',
             'received_email' => auth()->user()->email,
             'received_amount' => $request->input('BTCamount'),
         ]);

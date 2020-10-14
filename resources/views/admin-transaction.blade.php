@@ -49,7 +49,7 @@
 									<div class="col-md-12">
 							            <div class="profile-content" style="color: black;">
 										   <h2>Recent Transactions</h2>
-										   
+										   <div class="table-responsive">
 										   <table class="table table-striped">
 											  <thead>
 											    <tr>
@@ -76,7 +76,7 @@
 											  </tbody>
 											  @endif
 											</table>
-										   
+										   	</div>
 							            </div>
 									</div>
 								</div>
