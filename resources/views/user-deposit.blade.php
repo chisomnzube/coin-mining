@@ -4,7 +4,7 @@
 	<!-- Basic Page Needs -->
 	<meta charset="UTF-8">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-	<title>Recent Transactions | {{config('app.name')}}</title>
+	<title>My Deposit | {{config('app.name')}}</title>
 
 	<meta name="author" content="themsflat.com">
 	<meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
@@ -46,48 +46,45 @@
 						<div class="wrap-error center">
 							<div class="container">
 							    <div class="row profile">
-									<div class="col-md-12">
+									@include('inc.account')
+									<div class="col-md-9">
 							            <div class="profile-content" style="color: black;">
-										   <h2>Recent Transactions</h2>
+										   <h2>My Deposit</h2>
+										   <h3 >Balance : ${{ number_format(auth()->user()->balance) }}</h3>
+										   <hr>
+										   <form action="{{ route('deposit.create') }}" method="POST" class="form-group">
+										   	@csrf
+										   		<input type="number" class="form-control" name="amount" >
+										   		<br>
+										   		<button class="btn btn-success">Deposit</button>
+										   </form>
 										   <div class="table-responsive">
 										   <table class="table table-striped">
 											  <thead>
 											    <tr>
 											      <th scope="col">#</th>
-											      <th scope="col">User</th>
-											      <th scope="col">Plan</th>
-											      <th scope="col">Deposit</th>
-											      <th scope="col">Expires</th>
-											      <th scope="col">Mail</th>
+											      <th scope="col">Amount</th>
+											      <th scope="col">Status</th>
+											      <th scope="col">Date</th>
 											    </tr>
 											  </thead>
 											  <?php $i =0; ?>
-											  @if($payments->count() > 0)
+											  @if($deposits->count() > 0)
 											  <tbody>
-											  	@foreach($payments as $payment)
+											  	@foreach($deposits as $deposit)
 											  	<?php $i++; ?>
 											    <tr style="text-align: center;">
 											      <th scope="row">{{$i}}</th>
-											      <td>{{$payment->payer_name}}</td>
-											      <td>SERVICE PLAN -{{ strtoupper($payment->package)}}</td>
-											      <td>${{number_format($payment->USDamount)}}</td>
-											      <td>{{planExpiry($payment->package,$payment->created_at)}}</td>
-											      <td>
-											      	<form action="{{ route('send.client.mail') }}" method="POST">
-											      		@csrf
-											      		<input type="hidden" name="user_name" value="{{$payment->payer_name}}">
-											      		<input type="hidden" name="user_email" value="{{$payment->payer_email}}">
-											      		<input type="hidden" name="USDamount" value="{{$payment->USDamount}}">
-											      		<input type="hidden" name="package" value="{{$payment->package}}">
-											      		<button class="btn btn-success" type="submit">Send</button>
-											      	</form>
-											      </td>
+											      <td>${{ number_format($deposit->USDamount)}}</td>
+											      <td>{{$deposit->status }}</td>
+											      <td>{{$deposit->created_at->format('d M, Y')}}</td>
 											    </tr>
 											    @endforeach
 											  </tbody>
 											  @endif
 											</table>
-										   	</div>
+										   </div>
+										   
 							            </div>
 									</div>
 								</div>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Mail\SuccessWithdrawalMail;
 use App\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use TCG\Voyager\Models\Post;
 
 class LandingpageController extends Controller
@@ -61,6 +63,50 @@ class LandingpageController extends Controller
         ]);
 
         return back()->with('success_message', 'Your message have been sent successfully.');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendclientmail(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required',
+            'user_email' => 'required',
+            'USDamount' => 'required',
+            'package' => 'required',
+        ]);
+
+        
+        $name = $request->input('user_name');
+        $email = $request->input('user_email');
+        $amount = $request->input('USDamount');
+        $package = $request->input('package');
+
+        if ($package == 'lite') 
+           {
+               $rate = 0.105;
+           }elseif($package == 'pro')
+                {
+                    $rate = 0.35;
+                }elseif($package == 'max')
+                    {
+                        $rate = 0.15;
+                    }else
+                        {
+                            $rate = 0.96;
+                        }
+
+        $interest = $rate * $amount;
+        $total = $amount + $interest;
+
+        //send email to client
+        Mail::send(new SuccessWithdrawalMail($name, $email, $total));
+
+        return back()->with('success_message', 'Confirmation mail has been sent successfully!');
     }
 
     /**

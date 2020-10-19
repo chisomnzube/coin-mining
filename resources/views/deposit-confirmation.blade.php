@@ -4,7 +4,7 @@
 	<!-- Basic Page Needs -->
 	<meta charset="UTF-8">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-	<title>Payment | {{config('app.name')}}</title>
+	<title>Deposit Confirmation | {{config('app.name')}}</title>
 
 	<meta name="author" content="themsflat.com">
 	<meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
@@ -28,8 +28,7 @@
 </head>
 @endsection
 
-@section('main-content')		
-		
+@section('main-content')	
 
 		<section class="error-404 not-found" style="background-image: url('images/bg.jpeg');">
 			<div class="container">
@@ -45,29 +44,12 @@
 								<div class="row">
 									<div class="col-md-6" style="margin: auto; background: white; padding: 20px; box-shadow: 10px 10px 5px #888;">
 										<div class="panel-heading">
-											<h1>Pay {{$price}} BTC</h1>
-											<p><b>TO</b></p>
+											<h1>Deposit Confirmation</h1>
 										</div>
 										<hr>
-										<form action="{{ route('payment.store') }}" method="POST" class="form-group">
-											@csrf
-											{{-- <label for="amount">Amount ({{$rcurrency}})</label> --}}
-											<h5>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h5>
-											<hr>
-											<input type="hidden" name="USDamount" value="{{$amount}}">
-											<input type="hidden" name="BTCamount" value="{{$price}}">
-											<input type="hidden" name="package" value="{{$package}}">
-											<button type="submit" class="btn btn-success btn-block"> I have sent Payment</button>
-										</form>
-										@if(auth()->user()->balance >= $amount)
-										<form action="{{ route('payment.wallet.store') }}" method="POST">
-											@csrf
-											<input type="hidden" name="USDamount" value="{{$amount}}">
-											<input type="hidden" name="BTCamount" value="{{$price}}">
-											<input type="hidden" name="package" value="{{$package}}">
-											<button type="submit" class="btn btn-info"> Pay From wallet</button>
-										</form>
-										@endif
+										{{$success_message}}
+										<p>We sent a confirmation email to {{$received_email}}</p>
+
 									</div>
 
 									{{-- <div class="col-md-6">

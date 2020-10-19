@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\CashOut;
 use App\ClientPayout;
+use App\Deposit;
+use App\Mail\DepositMail;
 use App\Mail\WithdrawalMail;
 use App\Payment;
 use App\Payout;
@@ -37,17 +39,39 @@ class UsersController extends Controller
 
     public function withdrawal()
     {
-        $paymentBalance = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->get()->sum('USDamount');
-        //dd($paymentBalance);
+        $dues = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->get();
+        //dd($dues);
+        foreach ($dues as $due) 
+            {
+                $package = $due->package;
+                if ($package == 'lite') 
+                   {
+                       $rate = 0.105;
+                   }elseif($package == 'pro')
+                        {
+                            $rate = 0.35;
+                        }elseif($package == 'max')
+                            {
+                                $rate = 0.15;
+                            }else
+                                {
+                                    $rate = 0.96;
+                                }
 
-        $total = auth()->user()->balance + $paymentBalance;
-        User::where('id', auth()->user()->id)->update([
-            'balance' => $total,
-        ]);
+                $interest = $rate * $due->USDamount;
 
-        $payments = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->update([
-            'balanced' => 1,
-        ]);
+                $total = auth()->user()->balance + $due->USDamount + $interest;
+                User::where('id', auth()->user()->id)->update([
+                    'balance' => $total,
+                ]);
+
+                Payment::where('id', $due->id)->update([
+                    'balanced' => 1,
+                ]);
+            }
+        
+
+        
         
         $withdrawls = ClientPayout::where('client_id', auth()->user()->id)->get();
         
@@ -56,6 +80,113 @@ class UsersController extends Controller
             'withdrawls' => $withdrawls,
         ]);
     }
+
+    public function deposit()
+    {
+        $paymentBalance = Deposit::where('user_id', auth()->user()->id)->where('status', 'success')->where('remit', 0)->get()->sum('USDamount');
+        //dd($paymentBalance);
+
+        $total = auth()->user()->balance + $paymentBalance;
+        User::where('id', auth()->user()->id)->update([
+            'balance' => $total,
+        ]);
+
+        $payments = Deposit::where('user_id', auth()->user()->id)->where('status', 'success')->where('remit', 0)->update([
+                'remit' => 1,
+            ]);
+        
+        $deposits = Deposit::where('user_id', auth()->user()->id)->get();
+
+        return view('user-deposit')->with([
+            'deposits' => $deposits,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function depositcreate(Request $request)
+    {
+        $request->validate([
+            'amount' => 'required|integer',
+        ]);
+
+        //dd('hey dude');
+        $amount = $request->input('amount');
+        $scurrency = "USD";
+        $rcurrency = "BTC";
+
+        $checkprice = file_get_contents('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
+        $checkprice = json_decode($checkprice, true);
+
+        $maths = $amount / $checkprice['USD'];
+        $price = round($maths, 6);
+
+                               
+        return view('deposit-create')->with([
+            'amount' => $amount,  
+            'rcurrency' =>  $rcurrency,
+            'price' => $price,
+        ]);
+
+
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function depositstore(Request $request)
+    {
+        $request->validate([
+            'USDamount' => 'required',
+            'BTCamount' => 'required',
+        ]);
+
+        Deposit::create([
+            'user_id' => auth()->user()->id,
+            'user_email' => auth()->user()->email,
+            'BTCamount' => $request->input('BTCamount'),
+            'USDamount' => $request->input('USDamount'),
+            'status' => 'pending',
+        ]);
+
+        $name = auth()->user()->name;
+        $email = auth()->user()->email;
+        $amount = $request->input('USDamount');
+
+        //send email to user
+        Mail::send(new DepositMail($name, $email, $amount));
+
+        return redirect()->route('deposit.confirmation')->with([
+            'success_message'=> 'Thank You '.auth()->user()->name.', for depositing in Coin Mining we will confirm your transaction and it will reflect in your balance',
+            'received_email' => auth()->user()->email,
+            'received_amount' => $request->input('BTCamount'),
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function depositconfirmation()
+    {
+        if (!session()->has('success_message')) {
+            return redirect('/');
+        }
+
+        return view('deposit-confirmation')->with([
+            'success_message'=> session()->get('success_message'),
+            'received_email' => session()->get('received_email'),
+            'received_amount' => session()->get('received_amount'),
+        ]);
+    }
+
 
     /**
      * Display a listing of the resource.

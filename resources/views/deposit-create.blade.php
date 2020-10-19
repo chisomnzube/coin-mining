@@ -4,7 +4,7 @@
 	<!-- Basic Page Needs -->
 	<meta charset="UTF-8">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-	<title>Payment | {{config('app.name')}}</title>
+	<title>Deposit | {{config('app.name')}}</title>
 
 	<meta name="author" content="themsflat.com">
 	<meta property="og:image" content="{{ asset('images/logo.jpeg') }}">
@@ -49,25 +49,15 @@
 											<p><b>TO</b></p>
 										</div>
 										<hr>
-										<form action="{{ route('payment.store') }}" method="POST" class="form-group">
+										<form action="{{ route('deposit.store') }}" method="POST" class="form-group">
 											@csrf
 											{{-- <label for="amount">Amount ({{$rcurrency}})</label> --}}
 											<h5>1Cpk4seiXrjy7FfMDWt7QkThH3ZcnSVBgi</h5>
 											<hr>
 											<input type="hidden" name="USDamount" value="{{$amount}}">
 											<input type="hidden" name="BTCamount" value="{{$price}}">
-											<input type="hidden" name="package" value="{{$package}}">
 											<button type="submit" class="btn btn-success btn-block"> I have sent Payment</button>
 										</form>
-										@if(auth()->user()->balance >= $amount)
-										<form action="{{ route('payment.wallet.store') }}" method="POST">
-											@csrf
-											<input type="hidden" name="USDamount" value="{{$amount}}">
-											<input type="hidden" name="BTCamount" value="{{$price}}">
-											<input type="hidden" name="package" value="{{$package}}">
-											<button type="submit" class="btn btn-info"> Pay From wallet</button>
-										</form>
-										@endif
 									</div>
 
 									{{-- <div class="col-md-6">

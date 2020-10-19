@@ -80,6 +80,14 @@ Route::get('/transactions-admin', 'LandingpageController@transaction')->name('ad
 Route::get('/my-withdrawal', 'UsersController@withdrawal')->name('withdrawal.index');
 Route::post('/store-withdrawal', 'UsersController@store')->name('withdrawal.store');
 
+//my deposite
+Route::get('/my-deposit', 'UsersController@deposit')->name('deposit.index');
+Route::post('/deposit-create', 'UsersController@depositcreate')->name('deposit.create');
+Route::post('/deposit-store', 'UsersController@depositstore')->name('deposit.store');
+Route::get('/deposit-confirmation', 'UsersController@depositconfirmation')->name('deposit.confirmation');
+
+Route::post('/send-client-mail', 'LandingpageController@sendclientmail')->name('send.client.mail');
+
 });
 
 Route::group(['prefix' => 'admin'], function () {

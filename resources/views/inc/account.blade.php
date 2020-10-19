@@ -47,6 +47,11 @@
                             <i class="glyphicon glyphicon-share"></i>
                             My Withdrawals </a>
                           </li>
+                          <li class="list-group-item">
+                            <a href="{{ route('deposit.index') }}">
+                            <i class="glyphicon glyphicon-share"></i>
+                            My Deposit </a>
+                          </li>
                           
                         </ul>
                       </div>
