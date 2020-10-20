@@ -267,7 +267,7 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 			<table>
 				<tr>
 					<td>
-						<h3>Hi, {{$user->name}}</h3>
+						<h3>Hi, {{$name}}</h3>
 						<p class="lead">Thank you for referring an investor into our website. Once the payment is confirmed, you will receive your Referral Bonus.</p>
 						<!-- Callout Panel -->
 										

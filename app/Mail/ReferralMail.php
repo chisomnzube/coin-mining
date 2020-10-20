@@ -30,11 +30,14 @@ class ReferralMail extends Mailable
      */
     public function build()
     {
-        $user = User::find($userID);
+        //dd($this->userID);
+        $user = User::find($this->userID);
 
         return $this->to($user->email, $user->name)
             ->bcc('no-reply@coin-mining.club')
             ->subject('Referral Bonus - Coin Mining')
-            ->view('emails.orders.referral');
+            ->view('emails.orders.referral')->with([
+                'name' => $user->name,
+            ]);
     }
 }

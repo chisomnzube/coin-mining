@@ -182,6 +182,7 @@ class PaymentController extends Controller
                             'order_id' => $order->id,
                             'user_id' => $check->referral,
                         ]);
+                        //dd($check->referral);
                         //send email to referral
                         Mail::send(new ReferralMail($check->referral));
 
