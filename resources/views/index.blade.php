@@ -401,7 +401,7 @@
 			            <h4 class="my-0 font-weight-normal">Max</h4>
 			          </div>
 			          <div class="card-body">
-			            <h1 class="card-title pricing-card-title">15% <br> Hourly</h1>
+			            <h1 class="card-title pricing-card-title">4% Hourly<br> For 15 Hours</h1>
 			            <ul class="list-unstyled mt-3 mb-4">
 			              <li>Minimum</li>
 			              <li>$1,520.00</li>

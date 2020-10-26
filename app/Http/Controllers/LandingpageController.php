@@ -94,7 +94,7 @@ class LandingpageController extends Controller
                     $rate = 0.35;
                 }elseif($package == 'max')
                     {
-                        $rate = 0.15;
+                        $rate = 0.60;
                     }else
                         {
                             $rate = 0.96;

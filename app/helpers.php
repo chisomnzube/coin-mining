@@ -27,7 +27,7 @@ function planExpiry($plan, $date)
 					$hourAdd = 35;
 				}elseif ($plan == 'max') 
 					{
-						$hourAdd = 1;
+						$hourAdd = 15;
 					}else
 						{
 							$hourAdd = 96;
