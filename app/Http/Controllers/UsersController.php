@@ -39,41 +39,8 @@ class UsersController extends Controller
 
     public function withdrawal()
     {
-        $dues = Payment::where('payer_id', auth()->user()->id)->where('status', 'success')->where('balanced', 0)->where('expired', 1)->get();
-        //dd($dues);
-        foreach ($dues as $due) 
-            {
-                $package = $due->package;
-                if ($package == 'lite') 
-                   {
-                       $rate = 0.105;
-                   }elseif($package == 'pro')
-                        {
-                            $rate = 0.35;
-                        }elseif($package == 'max')
-                            {
-                                $rate = 0.60;
-                            }else
-                                {
-                                    $rate = 0.96;
-                                }
-
-                $interest = $rate * $due->USDamount;
-
-                $total = auth()->user()->balance + $due->USDamount + $interest;
-                User::where('id', auth()->user()->id)->update([
-                    'balance' => $total,
-                ]);
-
-                Payment::where('id', $due->id)->update([
-                    'balanced' => 1,
-                ]);
-            }
         
-
-        
-        
-        $withdrawls = ClientPayout::where('client_id', auth()->user()->id)->get();
+        $withdrawls = ClientPayout::where('client_id', auth()->user()->id)->orderBy('id', 'desc')->get();
         
 
         return view('user-withdrawal')->with([
@@ -82,20 +49,8 @@ class UsersController extends Controller
     }
 
     public function deposit()
-    {
-        $paymentBalance = Deposit::where('user_id', auth()->user()->id)->where('status', 'success')->where('remit', 0)->get()->sum('USDamount');
-        //dd($paymentBalance);
-
-        $total = auth()->user()->balance + $paymentBalance;
-        User::where('id', auth()->user()->id)->update([
-            'balance' => $total,
-        ]);
-
-        $payments = Deposit::where('user_id', auth()->user()->id)->where('status', 'success')->where('remit', 0)->update([
-                'remit' => 1,
-            ]);
-        
-        $deposits = Deposit::where('user_id', auth()->user()->id)->get();
+    {                
+        $deposits = Deposit::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
 
         return view('user-deposit')->with([
             'deposits' => $deposits,

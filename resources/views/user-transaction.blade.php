@@ -58,7 +58,6 @@
 											      <th scope="col">Amount</th>
 											      <th scope="col">Package</th>
 											      <th scope="col">Status</th>
-											      <th scope="col">Payed</th>
 											      <th scope="col">Date</th>
 											    </tr>
 											  </thead>
@@ -72,7 +71,6 @@
 											      <td>{{$payment->BTCamount}}</td>
 											      <td>{{$payment->package}}</td>
 											      <td>{{$payment->status}}</td>
-											      <td>{{$payment->payed == 1 ? 'Payed' : 'Not Payed'}}</td>
 											      <td>{{$payment->created_at->format('d M, Y')}}</td>
 											    </tr>
 											    @endforeach

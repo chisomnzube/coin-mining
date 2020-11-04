@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\FundDeposit',
+        'App\Console\Commands\FundWithdrawal',
+        'App\Console\Commands\CheckExpired',
     ];
 
     /**
@@ -24,8 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('fund:deposit')->everyMinute();
+        $schedule->command('fund:withdrawal')->everyMinute();
+        $schedule->command('check:expired')->everyMinute();
     }
 
     /**
