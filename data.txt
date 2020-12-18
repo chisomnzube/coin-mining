@@ -1,2 +1,13 @@
 ssh coinvbpu@198.54.115.169 -p 21098
 pw: Ahytdfresjkuytrdfeshytrd1345675646
+
+jovichat
+dgeoffrey013@gmail.com
+$Coinmining2020
+
+//for sending out mail
+reply@coin-mining.club
+Reply2020
+
+
+/usr/local/bin/php /home/coinvbpu/public_html/artisan notify:birthday >> /dev/null 2>&1
